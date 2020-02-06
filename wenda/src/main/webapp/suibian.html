@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+
+</head>
+<body>
+
+    <a href="/WEB-INF/pages/sign-up.vm">注册</a>
+    <a href="/WEB-INF/pages/sign-in.vm">登录</a>
+    
+    <script type="text/javascript">
+        function send () {
+
+            // AJAX : Asynchronous Javascript And XML ( 异步 JavaScript 和 XML )
+
+            // 1、创建一个 XMLHttpRequest 对象
+            let http = new XMLHttpRequest();
+
+            // 2、对 http 的 readyState 属性的变化予以监听
+            http.onreadystatechange = function () { // on readystate change
+                // 判断 readyState 是否为 4 ( 4 表示 请求已经结束，已经完全接受到响应数据 )
+                if( http.readyState == 4 ) {
+                    // responseText 表示以 文本 形式获取由服务器返回的数据
+                    console.log( http.responseText ); // console.log 表示在 浏览器的终端中输出数据
+                }
+            }
+
+            // 3、打开连接
+            http.open( "POST" ,  "/counsellor/si/ma/yi" );
+
+            // 4、如果是 POST 请求，还需要设置请求报头
+            http.setRequestHeader( "content-type" , "application/x-www-form-urlencoded" );
+
+            let data = "username=simazhao&password=nicaicai" ; // 名称=值&名称=值&名称=值
+            // 5、发送请求
+            http.send( data ); // 只有以 POST 方式建立连接时才能通过 send 函数的参数发送数据
+            
+        }
+
+        console.log( XMLHttpRequest.UNSENT ) ;
+        console.log( XMLHttpRequest.OPENED );
+        console.log( XMLHttpRequest.HEADERS_RECEIVED );
+        console.log( XMLHttpRequest.LOADING );
+        console.log( XMLHttpRequest.DONE );
+    </script>
+
+    <input type="button" value="点我试试" onclick="send()">
+
+    <hr>
+
+    <i class="fa fa-file-text" style="font-size: 300px ; color: red "></i>
+
+    <i class="fa fa-spinner fa-spin" style="font-size: 500px ; color: red ; "></i>
+
+    <hr>
+
+    <img class="fa-spin" src="/assets/yufeng.jpg">
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>「问答」</title>
+
+        <link rel="stylesheet" href="/assets/styles/header.css" >
+        <link rel="stylesheet" href="/assets/styles/detail.css" >
+        <link rel="stylesheet" href="/assets/styles/footer.css" >
+
+    </head>
+    <body>
+
+    #parse("/WEB-INF/pages/header.vm")
+
+    <div class="detail">
+        <div> ${request.topic.title} </div>
+        <div> ${request.topic.user.loginName} : ${request.topic.askTime}</div>
+        <div> ${request.topic.content}</div>
+        #if($session.USER)
+            <div>
+                <a href="/solution/solve/page?topicId=${topic.id}">解答</a>
+            </div>
+        #end
+    </div>
+
+    <div class="solution-list">
+        #if($request.topic.solutionList)
+            #foreach($solution in $request.topic.solutionList )
+                <div class="solution">
+                    <div> ${solution.solver.loginName} : ${solution.solveTime} </div>
+                    <div> ${solution.content} </div>
+                </div>
+            #end
+        #else
+            <h5 style="text-align: center">暂无解答</h5>
+        #end
+    </div>
+
+
+    #parse("/WEB-INF/pages/footer.vm")
+
+    </body>
+</html>

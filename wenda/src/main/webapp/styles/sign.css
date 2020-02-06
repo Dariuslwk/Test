@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+body {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.boundary {
+    display: block ;
+    height: 1px ;
+    border: none ;
+    background: transparent ;
+}
+
+.sign-container {
+    min-height: 500px ;
+    background-image:  url("../images/lighthouse2.jpg");
+    background-repeat: no-repeat ;
+    background-size: cover ;
+    background-position: center ;
+    position: relative ; /* 父元素采用相对定位是为了让子元素相对于自己进行定位 */
+    /* 即使元素采用了 相对定位 ，但在没有指定 任何偏移的前提下，元素的位置是不动的  */
+}
+
+/* class 选择器 */
+.sign {
+    border: 1px solid #dedede ;
+    border-radius: 5px ;
+    /* box-shadow: 0 0 5px 4px #dedede ; */
+    width: 30% ;
+    min-width: 300px ;
+    background: #FFFFFF ;
+    position: absolute ; /* 采用绝对定位，相对于第一个非 static 定位的父元素来定位 */
+    top: 10% ;
+    right: 15% ;
+}
+
+/* (亲子选择器) 直接子元素选择器 */
+.sign>p {
+    text-align: center ;
+    font-size: 22px ;
+}
+
+.sign .row {
+    height: auto ;
+    border: 1px solid #e8e8e8;
+    margin: 5px ;
+    border-radius: 3px ;
+}
+
+.sign .row>div {
+    height: 50px ;
+    line-height: 50px ;
+}
+
+.sign .row>div label {
+    float: left ;
+    width: 8% ;
+    line-height: 50px ;
+    text-align: center;
+}
+
+.sign .row>div span {
+    float: left ;
+    width: 92% ;
+    height: 50px ;
+}
+
+.sign .row>div  input {
+    width: 96% ;
+    line-height: 36px ;
+    font-size: 18px ;
+    border: none ;
+    outline: none ;
+}
+
+.sign .row>p {
+    margin: 5px ;
+}
+
+.sign .captcha-row {
+    height: auto ;
+    border: 1px solid #e8e8e8;
+    margin: 5px ;
+    border-radius: 3px ;
+}
+
+.sign .captcha-row>div {
+    overflow: hidden ;
+}
+
+.sign .captcha-row>div span {
+    float: left ;
+    width: 50% ;
+    height: 50px ;
+    text-align: center ;
+}
+
+.sign .captcha-row>div span input {
+    line-height: 50px ;
+    border: none ;
+    outline: none ;
+    font-size: 18px ;
+    width: 96% ;
+    text-align: center ;
+}
+
+/* 选择 .sign 内部的 .captcha-row 的直接子元素 div 内部的 span 内部的 img */
+.sign .captcha-row>div span img {
+    margin-top: 6px ;
+    border: 1px solid #eeeeee;
+}
+
+/* :pseudo-class 被称作 "伪类选择器"
+    :hover 表示元素在鼠标悬浮后的状态 */
+.sign .captcha-row>div span img:hover {
+    cursor: pointer ;
+}
+
+.sign .captcha-row>p {
+    margin: 5px ;
+}
+
+.sign .buttons {
+    height: auto ;
+    overflow: hidden ;
+    margin: 5px ;
+}
+
+.sign .buttons input[type=reset] {
+    float: left ;
+    width: 49% ;
+    height: 40px ;
+    font-size: 18px ;
+}
+
+.sign .buttons input[type=submit] {
+    float: right ;
+    width: 49% ;
+    height: 40px ;
+    font-size: 18px ;
+}
+
+.sign .links {
+    height: 50px ;
+    background: #e8e8e8;
+    margin-top : 10px ;
+    text-align: center ;
+}
+
+.sign .links a {
+    text-decoration: none ;
+}

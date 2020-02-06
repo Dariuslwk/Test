@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <link rel="stylesheet" href="/styles/header.css" >
+        <link rel="stylesheet" href="/styles/home.css" >
+        <link rel="stylesheet" href="/styles/footer.css" >
+
+    </head>
+    <body>
+
+    #parse("/pages/header.vm")
+
+    <div class="home">home</div>
+
+    #parse("/pages/footer.vm")
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>「问答」</title>
+
+        <link rel="stylesheet" href="/assets/styles/header.css" >
+        <link rel="stylesheet" href="/assets/styles/home.css" >
+        <link rel="stylesheet" href="/assets/styles/footer.css" >
+
+    </head>
+    <body>
+
+    #parse("/WEB-INF/pages/header.vm")
+
+    <div class="home">
+        #if($request.topicList)
+            #set($count=1)
+            #foreach($topic in $request.topicList)
+                #set($remainder=$count%2)
+                #if($remainder==1)
+                <div class="row odd">
+                #else
+                <div class="row even">
+                #end
+
+                    <span class="ordinal">
+                        $count
+                        #set($count=$count+1)
+                    </span>
+                    <span class="title">
+                        <a href="/topic/detail?id=${topic.id}">${topic.title}</a>
+                    </span>
+                    <span class="author">
+                        #if($topic.user.nickname)
+                            ${topic.user.nickname}
+                        #else
+                            ${topic.user.loginName}
+                        #end
+                    </span>
+                    <span class="time">
+                        ${topic.askTime}
+                    </span>
+                    <span class="detail">
+                        <a href="/topic/detail?id=${topic.id}">查看详情</a>
+                    </span>
+                </div>
+            #end
+        #end
+    </div>
+
+    #parse("/WEB-INF/pages/footer.vm")
+
+    </body>
+</html>

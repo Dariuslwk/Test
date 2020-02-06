@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+body { margin: 0 ; padding: 0 ; }
+
+/* class 选择器 */
+.home { background: #dedede;  height: 500px ; }
+
+.home .odd { background: yellow ; }
+.home .even { background: #eeeeee ; }
+
+.home .row { overflow: hidden ; }
+.home .row:hover { background: green ; }
+
+.home .row>span { float: left ; height: 30px ; line-height: 30px ; text-align: center ; }
+
+.home .row .ordinal { width: 5% ;  }
+.home .row .title { width: 50% ; text-align: left ; }
+.home .row .author { width: 20% ; }
+.home .row .time { width: 15% ; }
+.home .row .detail { width: 10% ; }
+
+.home .row a { text-decoration: none ; }

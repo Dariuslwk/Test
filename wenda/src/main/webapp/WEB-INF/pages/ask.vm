@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>提问</title>
+
+        <!-- 链接 Simditor 的样式文件 -->
+        <link rel="stylesheet" type="text/css" href="/simditor/styles/simditor.css" />
+
+        <!-- 引入 Simditor 所必须的 JavaScript 库 -->
+        <script type="text/javascript" src="/simditor/scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="/simditor/scripts/module.js"></script>
+        <script type="text/javascript" src="/simditor/scripts/hotkeys.js"></script>
+        <script type="text/javascript" src="/simditor/scripts/uploader.js"></script>
+        <script type="text/javascript" src="/simditor/scripts/simditor.js"></script>
+
+        <!-- 链接自定义的样式 -->
+        <link rel="stylesheet" href="/assets/styles/header.css" >
+        <link rel="stylesheet" href="/assets/styles/ask.css" >
+        <link rel="stylesheet" href="/assets/styles/footer.css" >
+
+    </head>
+    <body>
+
+    #parse("/WEB-INF/pages/header.vm")
+
+    <div class="ask-container">
+
+        <div class="boundary"></div>
+
+        <div class="ask">
+            <form action="/topic/ask/action" method="post" autocomplete="off">
+                <p class="title">
+                    <span class="left">
+                        <input type="text" name="title" placeholder="请输入标题" autofocus>
+                    </span>
+                    <span class="button"> <input type="submit" value="提问" > </span>
+                </p>
+                <div class="line"></div>
+                <textarea id="editor" name="content" placeholder="请输入内容" ></textarea>
+                <!-- 使用 JavaScript 代码初始化编辑器 -->
+                <script type="text/javascript">
+                    ( function(){
+                        let ed = new Simditor({
+                            textarea: $('#editor')
+                        });
+                    })();
+                </script>
+                <div class="line"></div>
+                <p class="title">
+                    <span class="button"> <input type="submit" value="提问" > </span>
+                </p>
+            </form>
+        </div>
+
+        <div class="boundary"></div>
+
+    </div>
+
+    #parse("/WEB-INF/pages/footer.vm")
+
+    </body>
+</html>

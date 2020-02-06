@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>登录「问答」</title>
+
+        <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="/assets/styles/header.css" >
+        <link rel="stylesheet" href="/assets/styles/sign.css" >
+        <link rel="stylesheet" href="/assets/styles/footer.css" >
+
+    </head>
+    <body>
+
+        #parse( "/WEB-INF/pages/header.vm")
+
+        <div class="sign-container">
+
+            <div class="boundary"></div>
+
+            <div class="sign">
+
+                <p>欢迎登录「问答」</p>
+
+                <form action="/user/sign/in/action" method="post" autocomplete="off">
+
+                    <div class="row">
+                        <div>
+                            <label> <i class="fa fa-user-o"></i> </label>
+                            <span> <input type="text" name="loginName" placeholder="请输入登录名称" value="$!{loginName}"> </span>
+                        </div>
+                        <p> $!{loginNameError} </p>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <label> <i class="fa fa-key"></i> </label>
+                            <span> <input type="password" name="password" placeholder="请输入密码">  </span>
+                        </div>
+                        <p> $!{passwordError} </p>
+                    </div>
+
+                    <div class="captcha-row">
+                        <div>
+                            <span>  <input type="text" name="captcha" placeholder="请输入验证码">  </span>
+                            <span>  <img src="/captcha/produce" >  </span>
+                        </div>
+                        <p>$!{captchaError}</p>
+                    </div>
+
+                    <div class="buttons">
+                        <input type="reset" value="重置" >
+                        <input type="submit" value="登录" >
+                    </div>
+                </form>
+                <div class="links">
+                    <a href="/">返回首页</a>
+                    |
+                    <a href="/user/sign/up/page" >注册</a>
+                </div>
+            </div>
+
+            <div class="boundary"></div>
+
+        </div>
+
+        #parse( "/WEB-INF/pages/footer.vm")
+
+        <script type="text/javascript" src="/assets/scripts/captcha-refresh.js" ></script>
+
+    </body>
+</html>

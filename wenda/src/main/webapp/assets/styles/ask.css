@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+
+body { margin: 0 ; padding: 0 ; }
+
+.boundary {
+    display: block ;
+    height: 1px ;
+    border: none ;
+    background: transparent ;
+}
+
+.line {
+    border-bottom: 1px solid #eeeeee ;
+}
+
+/* class 选择器 */
+.ask-container {
+    background: #d9eaff;
+}
+
+.ask-container .ask {
+    margin: 50px auto ;
+    width: 80% ;
+    background: #FFFFFF;
+    border: 1px solid #eeeeee ;
+}
+
+.ask-container .ask .title {
+    margin: 0 ;
+    overflow: hidden;
+}
+
+.ask-container .ask .title .left {
+    float: left ;
+    width: 90% ;
+    height: 60px ;
+}
+
+.ask-container .ask .title .left input {
+    width: 96% ;
+    margin-left: 5px ;
+    line-height: 60px ;
+    font-size: 20px ;
+    border: none ;
+    outline: none ;
+}
+
+.ask-container .ask .title .button {
+    float: right ;
+    width: 10% ;
+}
+
+.ask-container .ask .title .button input {
+    width: 100% ;
+    height: 60px ;
+    font-size: 20px ;
+    border: none ;
+    outline: none ;
+    background: #6c7cff;
+    color: yellow;
+}
+
+.ask-container .ask .title .button input:hover {
+    cursor: pointer;
+    background: #5a6dff;
+}
+
+.ask-container .ask .simditor {
+    border: none ;
+}
